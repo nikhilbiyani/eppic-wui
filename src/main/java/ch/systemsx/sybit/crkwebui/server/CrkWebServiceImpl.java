@@ -261,19 +261,17 @@ public class CrkWebServiceImpl extends XsrfProtectedServiceServlet implements Cr
 								  crkApplicationLocation,
 								  nrOfThreadForSubmission,
 								  assignedMemory);
-
-		jobStatusUpdater = new JobStatusUpdater(jobManager,
-				new JobDAOJpa(),
-				resultsPathUrl,
-				emailSender,
-				emailMessageData,
-				generalDestinationDirectoryName);
-		jobDaemon = new Thread(jobStatusUpdater);
-		jobDaemon.start();
-		
-		
-		
-
+		if(!properties.containsKey(ApplicationSettingsGenerator.DEVELOPMENT_MODE)) {
+		    jobStatusUpdater = new JobStatusUpdater(jobManager,
+			    new JobDAOJpa(),
+			    resultsPathUrl,
+			    emailSender,
+			    emailMessageData,
+			    generalDestinationDirectoryName);
+		    jobDaemon = new Thread(jobStatusUpdater);
+		    jobDaemon.start();
+		}
+				
 		
 //		try
 //		{		
