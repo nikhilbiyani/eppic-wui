@@ -72,9 +72,10 @@
 
 		<dependency>
 			<groupId>us.levk</groupId>
-			<artifactId>drmaa-common</artifactId>
-			<version>1.0</version>
+			<artifactId>drmaa</artifactId>
+			<version>static</version>
 		</dependency>
+    
 		<dependency>
 			<groupId>javax.mail</groupId>
 			<artifactId>mail</artifactId>
@@ -134,6 +135,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>ewui</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
